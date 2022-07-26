@@ -1,13 +1,13 @@
 # algo-data-pipeline
 
-A data ETL pipeline that loads Algorand DEX data into a data warehouse at a set interval, in order to power a Metabase dashboard. Inspiration from [bitcoin monitor project](https://startdataengineering.com/post/data-engineering-project-to-impress-hiring-managers/).
+A data ETL pipeline that loads Algorand DEX data into a data warehouse at a set interval, and powers a Metabase dashboard. Inspiration from [bitcoin monitor project](https://startdataengineering.com/post/data-engineering-project-to-impress-hiring-managers/).
 
 # Overview
 ![Screenshot](https://github.com/tarikceric/algo-data-pipeline/blob/main/images/pipeline-arch.png)
 
 
 1. Data is pulled from the [Vestige API](https://free-api.vestige.fi/providers) and loaded into the warehouse via [exchange_etl.py](https://github.com/tarikceric/algo-data-pipeline/blob/main/src/algopipeline/exchange_etl.py)
-2. Docker containers are used for Postgres database and Metabase dashboard
+2. Docker containers are used for the Postgres database and Metabase dashboard
     - warehouse connection credentials are stored as env variables within the docker compose definition
 3. The ETL script is scheduled to run every 5 minutes via a cron job
 4. Production: Data pipelines and dashboards are ran as containers on an EC2 Instance
@@ -17,10 +17,10 @@ A data ETL pipeline that loads Algorand DEX data into a data warehouse at a set 
 
 
 # Tools
-- Python
+- Python/SQL
 - Docker
+- Postgres
 - AWS EC2
-
 
 
 # Setup: 
